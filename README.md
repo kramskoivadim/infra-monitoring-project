@@ -44,3 +44,19 @@ tar czf . | ssh -i ~/.ssh/infra_deploy coolUser67@203.0.113.10 'mkdir -p ~/app &
 ```bash
 ssh -i ~/.ssh/infra_deploy coolUser67@203.0.113.10 'cd ~/app && docker compose up -d'
 ```
+
+## Запуск
+
+```bash
+chmod +x check_api.sh analyze_logs.sh
+
+./check_api.sh https://httpbin.org/status/200
+./check_api.sh https://httpbin.org/status/404
+
+./analyze_logs.sh
+./analyze_logs.sh 1000
+
+docker compose up -d
+curl http://localhost:80
+docker compose down
+```
